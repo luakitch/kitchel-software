@@ -24,7 +24,7 @@ export default function HomePage() {
       <section className="hero-glow relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 opacity-[0.35] groove-ring" />
         <div className="relative mx-auto max-w-6xl px-4 pb-24 pt-12 sm:px-6 sm:pb-32 sm:pt-16">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-amber-500">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
             Independent studio
           </p>
           <h1
@@ -35,7 +35,7 @@ export default function HomePage() {
             }}
           >
             Software with{" "}
-            <span className="italic text-amber-500">intention</span>,
+            <span className="italic text-[var(--accent)]">intention</span>,
             <br className="hidden sm:block" /> not noise.
           </h1>
           <p
@@ -83,7 +83,7 @@ export default function HomePage() {
               </div>
               <Link
                 href="/deep-cut"
-                className="text-sm font-medium text-amber-500 hover:text-amber-600"
+                className="text-sm font-medium text-[var(--accent)] hover:opacity-90"
               >
                 View product page →
               </Link>
@@ -91,15 +91,19 @@ export default function HomePage() {
 
             <div className="mt-14 grid gap-6 lg:grid-cols-3">
               <article
-                className="relative overflow-hidden rounded-2xl border border-amber-500/25 p-8 lg:col-span-2"
+                className="relative overflow-hidden rounded-2xl border p-8 lg:col-span-2"
                 style={{
+                  borderColor: "rgba(251, 191, 36, 0.28)",
                   background: "var(--card-elevated)",
                   boxShadow: "0 0 0 1px var(--border-subtle-2) inset",
                 }}
               >
-                <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-amber-400/10 blur-3xl" />
+                <div
+                  className="absolute -right-16 -top-16 h-48 w-48 rounded-full blur-3xl"
+                  style={{ background: "rgba(251, 191, 36, 0.12)" }}
+                />
                 <div className="relative">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-amber-500/90">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[var(--accent)]">
                     Deep Cut
                   </p>
                   <h3
@@ -129,7 +133,7 @@ export default function HomePage() {
                     {highlights.map((h) => (
                       <li key={h.title} className="flex gap-3">
                         <span
-                          className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-400"
+                          className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]"
                           aria-hidden
                         />
                         <span>
@@ -147,7 +151,11 @@ export default function HomePage() {
                   <div className="mt-10">
                     <Link
                       href="/deep-cut"
-                      className="inline-flex rounded-lg bg-amber-400 px-5 py-2.5 text-sm font-semibold text-zinc-950 transition hover:bg-amber-300"
+                      className="inline-flex rounded-lg px-5 py-2.5 text-sm font-semibold text-white transition hover:brightness-110"
+                      style={{
+                        background:
+                          "linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%)",
+                      }}
                     >
                       Features, links & policies
                     </Link>

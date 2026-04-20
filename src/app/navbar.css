@@ -29,11 +29,11 @@ header.site-header:has(.navbar) {
 }
 
 .navbar {
-  --nav-glass-bg: rgba(15, 23, 42, 0.72);
-  --nav-glass-border: rgba(255, 255, 255, 0.2);
-  --nav-glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+  --nav-glass-bg: rgba(9, 9, 11, 0.78);
+  --nav-glass-border: rgba(255, 255, 255, 0.1);
+  --nav-glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
   --nav-link: #ffffff;
-  --nav-link-hover: #fbbf24;
+  --nav-link-hover: #fcd34d;
   --nav-cta-border: rgba(255, 255, 255, 0.85);
   --nav-cta-hover-bg: #ffffff;
   --nav-cta-hover-fg: #b45309;
@@ -94,7 +94,7 @@ html[data-theme="light"] .navbar {
     0 12px 40px rgba(15, 23, 42, 0.1),
     0 1px 0 rgba(255, 255, 255, 0.95) inset;
   --nav-link: #18181b;
-  --nav-link-hover: #d97706;
+  --nav-link-hover: #b45309;
   --nav-cta-border: rgba(28, 40, 52, 0.35);
   --nav-cta-hover-bg: #18181b;
   --nav-cta-hover-fg: #ffffff;
@@ -102,7 +102,7 @@ html[data-theme="light"] .navbar {
 
 html[data-theme="light"] header.site-header:has(.navbar):not(.scrolled) .navbar {
   --nav-link: #18181b;
-  --nav-link-hover: #d97706;
+  --nav-link-hover: #6d28d9;
   --nav-cta-border: rgba(28, 40, 52, 0.35);
   --nav-cta-hover-bg: #18181b;
   --nav-cta-hover-fg: #ffffff;
@@ -278,7 +278,7 @@ html[data-theme="dark"] .nav-links .nav-drawer-theme button[aria-label="Toggle l
 }
 
 .nav-links a:hover {
-  color: var(--nav-link-hover, #fbbf24);
+  color: var(--nav-link-hover, #fcd34d);
 }
 
 @media (min-width: 1360px) {
@@ -515,7 +515,7 @@ button.hamburger {
   }
 
   html[data-theme="light"] .nav-links a:hover {
-    color: #d97706;
+    color: #b45309;
   }
 
   .nav-links.active {
@@ -550,4 +550,27 @@ button.hamburger {
     border-bottom-color: rgba(28, 40, 52, 0.12);
   }
 
+  html[data-theme="light"] body.deepcut-theme .nav-links a:hover {
+    color: #6d28d9;
+  }
+
+}
+
+/* Deep Cut page only: `deepcut-theme` on body from deep-cut layout */
+body.deepcut-theme .navbar {
+  --nav-glass-bg: rgba(10, 10, 15, 0.78);
+  --nav-glass-border: rgba(255, 255, 255, 0.14);
+  --nav-glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  --nav-link-hover: #d084ff;
+  --nav-cta-hover-fg: #6d28d9;
+}
+
+html[data-theme="light"] body.deepcut-theme .navbar,
+html[data-theme="light"] body.deepcut-theme header.site-header:has(.navbar):not(.scrolled) .navbar {
+  --nav-link-hover: #6d28d9;
+  --nav-cta-hover-fg: #6d28d9;
+}
+
+body.deepcut-theme .hamburger span {
+  background: #b859ff;
 }

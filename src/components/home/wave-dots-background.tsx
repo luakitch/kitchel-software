@@ -74,7 +74,7 @@ export function WaveDotsBackground({ fullBleed = false }: Props) {
           const a = minA + (maxA - minA) * wave;
           if (a < 0.035) continue;
           const r = 1.05 + 0.5 * wave;
-          ctx.fillStyle = dark ? `rgba(232, 238, 242, ${a})` : `rgba(28, 40, 52, ${a})`;
+          ctx.fillStyle = dark ? `rgba(228, 228, 231, ${a})` : `rgba(24, 24, 27, ${a})`;
           ctx.beginPath();
           ctx.arc(x, y, r, 0, Math.PI * 2);
           ctx.fill();

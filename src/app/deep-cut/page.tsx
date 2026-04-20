@@ -53,7 +53,7 @@ export default function DeepCutPage() {
     <div className="border-b" style={{ borderColor: "var(--border-subtle)" }}>
       <section className="hero-glow relative overflow-hidden">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-500">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
             Kitchel Software
           </p>
           <p
@@ -71,7 +71,7 @@ export default function DeepCutPage() {
           >
             Deep Cut
           </h1>
-          <p className="mt-2 text-xl text-amber-500 sm:text-2xl">Spin journal for vinyl</p>
+          <p className="mt-2 text-xl text-[var(--accent)] sm:text-2xl">Spin journal for vinyl</p>
           <div className="mt-8 max-w-2xl space-y-4 text-lg leading-relaxed" style={{ color: "var(--muted)" }}>
             <p>
               Build a shelf, log spins with notes and tags, and see patterns that match
@@ -93,25 +93,23 @@ export default function DeepCutPage() {
                 href={storeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-amber-400 px-7 py-3.5 text-sm font-semibold text-zinc-950 shadow-lg shadow-amber-500/25 transition hover:bg-amber-300"
+                className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition hover:brightness-110"
+                style={{
+                  background: "linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%)",
+                  boxShadow: "0 12px 40px rgba(184, 89, 255, 0.25)",
+                }}
               >
                 Download on the App Store
               </a>
             ) : (
               <span
-                className="inline-flex max-w-full flex-wrap items-center justify-center gap-1 rounded-full border border-dashed border-amber-500/40 px-7 py-3.5 text-sm font-medium text-amber-600"
-                style={{ background: "var(--accent-soft)" }}
+                className="inline-flex items-center justify-center rounded-full border px-7 py-3.5 text-sm font-medium text-[var(--muted)]"
+                style={{
+                  borderColor: "var(--border-ui)",
+                  background: "var(--card)",
+                }}
               >
-                App Store link goes live with release. Set{" "}
-                <code
-                  className="rounded px-1.5 py-0.5 font-mono text-xs"
-                  style={{
-                    background: "var(--card-elevated)",
-                    color: "var(--foreground)",
-                  }}
-                >
-                  NEXT_PUBLIC_DEEP_CUT_APP_STORE_URL
-                </code>
+                Coming soon on the App Store
               </span>
             )}
             <Link
@@ -154,7 +152,7 @@ export default function DeepCutPage() {
                 {block.items.map((item) => (
                   <li key={item} className="flex gap-3">
                     <span
-                      className="mt-2 h-1 w-1 shrink-0 rounded-full bg-amber-400/80"
+                      className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[var(--accent)] opacity-90"
                       aria-hidden
                     />
                     <span>{item}</span>

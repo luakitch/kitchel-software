@@ -29,7 +29,7 @@ const topics = [
 export default function SupportPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
-      <p className="text-xs font-semibold uppercase tracking-widest text-amber-500">
+      <p className="text-xs font-semibold uppercase tracking-widest text-[var(--accent)]">
         Help
       </p>
       <h1
@@ -60,7 +60,7 @@ export default function SupportPage() {
             <span className="font-medium text-[var(--foreground)]">Email:</span>{" "}
             <a
               href={`mailto:${site.email.support}`}
-              className="font-medium text-amber-500 hover:text-amber-600"
+              className="font-medium text-[var(--accent)] hover:opacity-90"
             >
               {site.email.support}
             </a>
@@ -88,7 +88,7 @@ export default function SupportPage() {
         <h2 className="text-base font-semibold text-[var(--foreground)]">Privacy</h2>
         <p className="mt-3 text-sm text-[var(--muted)]">
           See our{" "}
-          <Link href="/privacy" className="font-medium text-amber-500 hover:text-amber-600">
+          <Link href="/privacy" className="font-medium text-[var(--accent)] hover:opacity-90">
             Privacy Policy
           </Link>
           .

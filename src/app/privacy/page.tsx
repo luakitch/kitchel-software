@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
-      <p className="text-xs font-semibold uppercase tracking-widest text-amber-500/90">
+      <p className="text-xs font-semibold uppercase tracking-widest text-[var(--accent)]">
         Legal
       </p>
       <h1
@@ -156,7 +156,7 @@ export default function PrivacyPage() {
             Privacy questions:{" "}
             <a
               href={`mailto:${site.email.privacy}`}
-              className="font-medium text-amber-400/90 hover:text-amber-300"
+              className="font-medium text-[var(--accent)] hover:opacity-90"
             >
               {site.email.privacy}
             </a>
