@@ -5,31 +5,59 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/[0.06] bg-zinc-950">
+    <footer
+      className="border-t"
+      style={{
+        borderColor: "var(--border-subtle)",
+        background: "var(--background)",
+      }}
+    >
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-12 sm:flex-row sm:items-start sm:justify-between sm:px-6">
         <div className="max-w-sm space-y-3">
-          <p className="text-sm font-medium text-white">{site.name}</p>
-          <p className="text-sm leading-relaxed text-zinc-500">{site.tagline}</p>
+          <p className="text-sm font-medium" style={{ color: "var(--foreground)" }}>
+            {site.name}
+          </p>
+          <p className="text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
+            {site.tagline}
+          </p>
         </div>
-        <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-zinc-400">
-          <Link href="/deep-cut" className="hover:text-white">
+        <div
+          className="flex flex-wrap gap-x-8 gap-y-3 text-sm"
+          style={{ color: "var(--muted)" }}
+        >
+          <Link
+            href="/deep-cut"
+            className="transition hover:text-[var(--foreground)]"
+          >
             Deep Cut
           </Link>
-          <Link href="/support" className="hover:text-white">
+          <Link
+            href="/support"
+            className="transition hover:text-[var(--foreground)]"
+          >
             Support
           </Link>
-          <Link href="/privacy" className="hover:text-white">
+          <Link
+            href="/privacy"
+            className="transition hover:text-[var(--foreground)]"
+          >
             Privacy
           </Link>
           <a
             href={`mailto:${site.email.support}`}
-            className="hover:text-white"
+            className="transition hover:text-[var(--foreground)]"
           >
             Contact
           </a>
         </div>
       </div>
-      <div className="border-t border-white/[0.04] py-6 text-center text-xs text-zinc-600">
+      <div
+        className="border-t py-6 text-center text-xs"
+        style={{
+          borderColor: "var(--border-subtle-2)",
+          color: "var(--footer-note)",
+        }}
+      >
         © {year} {site.name}. All rights reserved.
       </div>
     </footer>

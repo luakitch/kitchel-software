@@ -49,22 +49,23 @@ export default function DeepCutPage() {
   const storeUrl = site.deepCutAppStoreUrl;
 
   return (
-    <div className="border-b border-white/[0.06]">
+    <div className="border-b" style={{ borderColor: "var(--border-subtle)" }}>
       <section className="hero-glow relative overflow-hidden">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-500/90">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-500">
             Kitchel Software
           </p>
           <h1
-            className="mt-4 max-w-3xl text-4xl font-normal tracking-tight text-white sm:text-5xl md:text-6xl"
-            style={{ fontFamily: "var(--font-display), ui-serif, Georgia, serif" }}
+            className="mt-4 max-w-3xl text-4xl font-normal tracking-tight sm:text-5xl md:text-6xl"
+            style={{
+              fontFamily: "var(--font-display), ui-serif, Georgia, serif",
+              color: "var(--foreground)",
+            }}
           >
             Deep Cut
           </h1>
-          <p className="mt-2 text-xl text-amber-200/90 sm:text-2xl">
-            Spin Journal
-          </p>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400">
+          <p className="mt-2 text-xl text-amber-500 sm:text-2xl">Spin Journal</p>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed" style={{ color: "var(--muted)" }}>
             For people who listen on vinyl and want a real shelf, a real spin log,
             and listening insights that match how records work, not generic streaming
             stats.
@@ -80,22 +81,31 @@ export default function DeepCutPage() {
                 Download on the App Store
               </a>
             ) : (
-              <span className="inline-flex items-center justify-center rounded-full border border-dashed border-amber-500/40 bg-amber-500/[0.06] px-7 py-3.5 text-sm font-medium text-amber-100/90">
+              <span
+                className="inline-flex max-w-full flex-wrap items-center justify-center gap-1 rounded-full border border-dashed border-amber-500/40 px-7 py-3.5 text-sm font-medium text-amber-600"
+                style={{ background: "var(--accent-soft)" }}
+              >
                 App Store link goes live with release. Set{" "}
-                <code className="mx-1 rounded bg-black/30 px-1.5 py-0.5 font-mono text-xs">
+                <code
+                  className="rounded px-1.5 py-0.5 font-mono text-xs"
+                  style={{
+                    background: "var(--card-elevated)",
+                    color: "var(--foreground)",
+                  }}
+                >
                   NEXT_PUBLIC_DEEP_CUT_APP_STORE_URL
                 </code>
               </span>
             )}
             <Link
               href="/support"
-              className="text-sm font-medium text-zinc-400 underline-offset-4 hover:text-white hover:underline"
+              className="text-sm font-medium text-[var(--muted)] underline-offset-4 hover:text-[var(--foreground)] hover:underline"
             >
               Support
             </Link>
             <Link
               href="/privacy"
-              className="text-sm font-medium text-zinc-400 underline-offset-4 hover:text-white hover:underline"
+              className="text-sm font-medium text-[var(--muted)] underline-offset-4 hover:text-[var(--foreground)] hover:underline"
             >
               Privacy Policy
             </Link>
@@ -105,20 +115,25 @@ export default function DeepCutPage() {
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <h2
-          className="text-2xl text-white sm:text-3xl"
-          style={{ fontFamily: "var(--font-display), ui-serif, Georgia, serif" }}
+          className="text-2xl sm:text-3xl"
+          style={{
+            fontFamily: "var(--font-display), ui-serif, Georgia, serif",
+            color: "var(--foreground)",
+          }}
         >
           What you get
         </h2>
-        <p className="mt-2 text-sm text-zinc-500">
+        <p className="mt-2 text-sm" style={{ color: "var(--muted)" }}>
           Designed for dark mode, with Shelf, Stats, Log, Recents, and more under one
           roof.
         </p>
         <div className="mt-12 grid gap-10 md:grid-cols-2">
           {featureBlocks.map((block) => (
             <div key={block.title}>
-              <h3 className="text-lg font-medium text-white">{block.title}</h3>
-              <ul className="mt-4 space-y-3 text-sm leading-relaxed text-zinc-400">
+              <h3 className="text-lg font-medium" style={{ color: "var(--foreground)" }}>
+                {block.title}
+              </h3>
+              <ul className="mt-4 space-y-3 text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
                 {block.items.map((item) => (
                   <li key={item} className="flex gap-3">
                     <span

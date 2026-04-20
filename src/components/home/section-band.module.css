@@ -1,0 +1,100 @@
+/* Alternating full-width bands + SVG wave (Acceling-style). */
+
+.sectionBand {
+  position: relative;
+  z-index: 1;
+  transition: background-color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bandInner {
+  position: relative;
+  z-index: 1;
+}
+
+.bandInnerFirst {
+  padding-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .bandInnerFirst {
+    padding-top: 2.5rem;
+  }
+}
+
+.bandSurface {
+  background-color: var(--section-surface);
+}
+
+.bandMuted {
+  background-color: var(--section-muted);
+}
+
+.bandTint {
+  background-color: var(--section-tint);
+}
+
+/* Halftone canvas: masked fade (band variant) */
+.bandHalftoneWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to bottom right,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.5) 45%,
+    rgba(0, 0, 0, 0.14) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom right,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.5) 45%,
+    rgba(0, 0, 0, 0.14) 100%
+  );
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.bandHalftoneWrapFull {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.waveCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.waveDivider {
+  display: block;
+  line-height: 0;
+  margin-top: -1px;
+  position: relative;
+  z-index: 2;
+}
+
+.waveSvg {
+  display: block;
+  width: 100%;
+  height: clamp(56px, 12vw, 112px);
+}
+
+.wavePath {
+  stroke: none;
+}
+
+.wavePath[data-wave-fill="surface"] {
+  fill: var(--section-surface);
+}
+
+.wavePath[data-wave-fill="muted"] {
+  fill: var(--section-muted);
+}
+
+.wavePath[data-wave-fill="tint"] {
+  fill: var(--section-tint);
+}

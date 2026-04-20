@@ -15,17 +15,17 @@ export default function PrivacyPage() {
         Legal
       </p>
       <h1
-        className="mt-3 text-4xl font-normal tracking-tight text-white"
+        className="mt-3 text-4xl font-normal tracking-tight text-[var(--foreground)]"
         style={{ fontFamily: "var(--font-display), ui-serif, Georgia, serif" }}
       >
         Privacy Policy
       </h1>
-      <p className="mt-3 text-sm text-zinc-500">
-        <strong className="font-medium text-zinc-300">Deep Cut</strong> (Spin
-        Journal), {site.name}, Effective April 2026
+      <p className="mt-3 text-sm text-[var(--muted)]">
+        <strong className="font-medium text-[var(--foreground)]">Deep Cut</strong>{" "}
+        (Spin Journal), {site.name}, Effective April 2026
       </p>
 
-      <div className="prose-custom mt-12 space-y-10 text-sm leading-relaxed text-zinc-400">
+      <div className="prose-custom mt-12 space-y-10 text-sm leading-relaxed text-[var(--muted)]">
         <p>
           This policy describes how Deep Cut (&ldquo;the app&rdquo;) handles
           information when you use it on iPhone or iPad. If you have questions,
@@ -33,7 +33,9 @@ export default function PrivacyPage() {
         </p>
 
         <section className="space-y-3">
-          <h2 className="text-base font-semibold text-white">What the app is for</h2>
+          <h2 className="text-base font-semibold text-[var(--foreground)]">
+            What the app is for
+          </h2>
           <p>
             Deep Cut helps you log vinyl listening (spins), organize your shelf,
             and view stats. Data stays on your device and, when you sign in, in
@@ -42,19 +44,19 @@ export default function PrivacyPage() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-base font-semibold text-white">
+          <h2 className="text-base font-semibold text-[var(--foreground)]">
             Information the app processes
           </h2>
           <ul className="list-none space-y-4 pl-0">
             <li>
-              <span className="font-medium text-zinc-200">
+              <span className="font-medium text-[var(--foreground)]">
                 Library and listening data you enter
               </span>
               : records you add, spin logs, notes, tags, and related metadata.
               Stored locally on your device.
             </li>
             <li>
-              <span className="font-medium text-zinc-200">
+              <span className="font-medium text-[var(--foreground)]">
                 iCloud / CloudKit (signed-in users)
               </span>
               . If you use Sign in with Apple and iCloud, your library data may
@@ -64,24 +66,24 @@ export default function PrivacyPage() {
               servers.
             </li>
             <li>
-              <span className="font-medium text-zinc-200">Guest mode</span>. If
+              <span className="font-medium text-[var(--foreground)]">Guest mode</span>. If
               you continue without signing in, data stays on the device only (not
               synced via iCloud).
             </li>
             <li>
-              <span className="font-medium text-zinc-200">Sign in with Apple</span>
+              <span className="font-medium text-[var(--foreground)]">Sign in with Apple</span>
               . Apple may share an account identifier with the app so we can
               associate your subscription and synced data with your account. Apple
               controls what name or email is shared; we use it only to run the app
               and support your account.
             </li>
             <li>
-              <span className="font-medium text-zinc-200">In-app purchases</span>.
+              <span className="font-medium text-[var(--foreground)]">In-app purchases</span>.
               Subscription and purchase status are handled by Apple (StoreKit). We
               do not receive your full payment card details.
             </li>
             <li>
-              <span className="font-medium text-zinc-200">
+              <span className="font-medium text-[var(--foreground)]">
                 Music catalog (MusicKit)
               </span>
               . When you enable optional catalog-based artwork (or similar
@@ -90,7 +92,7 @@ export default function PrivacyPage() {
               terms and privacy policy.
             </li>
             <li>
-              <span className="font-medium text-zinc-200">Discogs</span>. When you
+              <span className="font-medium text-[var(--foreground)]">Discogs</span>. When you
               search or load release information from Discogs, your search terms
               and requested release identifiers are sent to Discogs&apos; API over
               the network so the app can show results and artwork. Discogs&apos;
@@ -100,10 +102,10 @@ export default function PrivacyPage() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-base font-semibold text-white">What we don&apos;t do</h2>
+          <h2 className="text-base font-semibold text-[var(--foreground)]">What we don&apos;t do</h2>
           <ul className="list-none space-y-3 pl-0">
             <li>
-              We do <strong className="text-zinc-200">not</strong> sell your
+              We do <strong className="text-[var(--foreground)]">not</strong> sell your
               personal information.
             </li>
             <li>
@@ -118,7 +120,7 @@ export default function PrivacyPage() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-base font-semibold text-white">
+          <h2 className="text-base font-semibold text-[var(--foreground)]">
             Data retention and deletion
           </h2>
           <p>
@@ -131,7 +133,7 @@ export default function PrivacyPage() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-base font-semibold text-white">Children</h2>
+          <h2 className="text-base font-semibold text-[var(--foreground)]">Children</h2>
           <p>
             The app is not directed to children under 13 (or the minimum age
             required in your region). We do not knowingly collect personal
@@ -140,7 +142,7 @@ export default function PrivacyPage() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-base font-semibold text-white">Changes</h2>
+          <h2 className="text-base font-semibold text-[var(--foreground)]">Changes</h2>
           <p>
             We may update this policy from time to time. The &ldquo;Effective&rdquo;
             date at the top will change when we do. Continued use of the app after
@@ -148,8 +150,8 @@ export default function PrivacyPage() {
           </p>
         </section>
 
-        <section className="border-t border-white/[0.08] pt-10">
-          <h2 className="text-base font-semibold text-white">Contact</h2>
+        <section className="border-t border-[var(--border-subtle)] pt-10">
+          <h2 className="text-base font-semibold text-[var(--foreground)]">Contact</h2>
           <p className="mt-2">
             Privacy questions:{" "}
             <a
@@ -159,12 +161,12 @@ export default function PrivacyPage() {
               {site.email.privacy}
             </a>
           </p>
-          <p className="mt-6 text-xs text-zinc-600">
-            <Link href="/support" className="hover:text-zinc-400">
+          <p className="mt-6 text-xs text-[var(--footer-note)]">
+            <Link href="/support" className="hover:text-[var(--foreground)]">
               Support page
             </Link>
             {" | "}
-            <Link href="/deep-cut" className="hover:text-zinc-400">
+            <Link href="/deep-cut" className="hover:text-[var(--foreground)]">
               Deep Cut product page
             </Link>
           </p>

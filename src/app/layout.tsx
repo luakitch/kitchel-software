@@ -3,7 +3,9 @@ import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { absoluteUrl, site } from "@/lib/site";
+import { themeBootScript } from "@/lib/theme";
 import "./globals.css";
+import "./navbar.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,13 +50,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeBootScript() }} />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${display.variable} min-h-dvh font-sans antialiased`}
       >
         <div className="flex min-h-dvh flex-col">
           <SiteHeader />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 pt-[var(--site-nav-pad)]">{children}</main>
           <SiteFooter />
         </div>
       </body>

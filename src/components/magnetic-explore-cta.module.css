@@ -1,0 +1,233 @@
+/* Pointer-driven glow (same interaction model as Acceling NavMagneticGetStarted), amber palette */
+
+.shell {
+  display: inline-flex;
+  padding: 0.65rem;
+  margin: -0.65rem;
+  vertical-align: middle;
+}
+
+.hulyWrap {
+  position: relative;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+}
+
+.ringBlur {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(100% + 9px);
+  height: calc(100% + 9px);
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: transparent;
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+.ringBlur::before,
+.ringBlur::after {
+  content: "";
+  position: absolute;
+  box-sizing: content-box;
+  height: 100%;
+  width: 100%;
+  border-radius: 9999px;
+  border-style: solid;
+  border-color: transparent;
+  background-clip: padding-box, border-box;
+}
+
+.ringBlur::before {
+  left: -0.125rem;
+  top: -0.125rem;
+  z-index: 10;
+  border-width: 2px;
+  filter: blur(2px);
+  background:
+    linear-gradient(transparent, transparent) padding-box,
+    linear-gradient(
+      97.68deg,
+      rgba(245, 158, 11, 0) 38.1%,
+      rgba(251, 191, 36, 0.35) 82.47%,
+      #d97706 93.3%
+    )
+    border-box;
+}
+
+.ringBlur::after {
+  left: -3px;
+  top: -3px;
+  z-index: 20;
+  border-width: 3px;
+  filter: blur(15px);
+  background:
+    linear-gradient(transparent, transparent) padding-box,
+    linear-gradient(91.88deg, rgba(251, 191, 36, 0.35) 46.45%, #ea580c 98.59%) border-box;
+}
+
+.ringFlip {
+  transform: translate(-50%, -50%) scaleX(-1);
+}
+
+.ringLight {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 9999px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  background:
+    linear-gradient(transparent, transparent) padding-box,
+    linear-gradient(
+      103.7deg,
+      rgba(245, 158, 11, 0.12) 38.66%,
+      rgba(254, 243, 199, 0.35) 68.55%,
+      #fbbf24 85.01%,
+      #fff8e7 92.12%
+    )
+    border-box;
+  background-clip: padding-box, border-box;
+}
+
+.ringLight::before {
+  content: "";
+  position: absolute;
+  left: -0.125rem;
+  top: -0.125rem;
+  z-index: 30;
+  box-sizing: content-box;
+  height: 100%;
+  width: 100%;
+  border-radius: 9999px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+  filter: blur(7px);
+  background:
+    linear-gradient(transparent, transparent) padding-box,
+    linear-gradient(
+      91.96deg,
+      rgba(217, 119, 6, 0) 6.11%,
+      rgba(251, 191, 36, 0.45) 53.57%,
+      #f59e0b 93.6%
+    )
+    border-box;
+  background-clip: padding-box, border-box;
+}
+
+.cta {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.28rem;
+  overflow: hidden;
+  height: 40px;
+  min-height: 40px;
+  padding: 0 clamp(2.75rem, 5vw, 4rem);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  background-color: #e8e8e8;
+  color: #1c1917;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: -0.015em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+  isolation: isolate;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.cta:hover {
+  background-color: #dedede;
+  color: #1c1917;
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.glowShell {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.glowMotion {
+  display: flex;
+  width: 204px;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+.glowOrb1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 121px;
+  height: 121px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #fffbeb 3.5%,
+    #fde68a 26.5%,
+    #fbbf24 37.5%,
+    rgba(217, 119, 6, 0.45) 49%,
+    rgba(234, 88, 12, 0) 92.5%
+  );
+}
+
+.glowOrb2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 204px;
+  height: 103px;
+  transform: translate(-50%, -50%);
+  filter: blur(5px);
+  background: radial-gradient(
+    43.3% 44.23% at 50% 49.51%,
+    #fffbeb 29%,
+    #fef3c7 48.5%,
+    #fde68a 60.71%,
+    rgba(253, 230, 138, 0) 100%
+  );
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42em;
+}
+
+.label {
+  display: inline-block;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #1c1917;
+}
+
+.icon svg {
+  display: block;
+  width: 17px;
+  height: 9px;
+}
