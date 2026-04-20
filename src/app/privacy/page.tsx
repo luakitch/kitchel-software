@@ -3,7 +3,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Deep Cut",
+  title: "Privacy Policy | Deep Cut",
   description:
     "How Deep Cut (Spin Journal) handles your information on iPhone and iPad.",
 };
@@ -22,7 +22,7 @@ export default function PrivacyPage() {
       </h1>
       <p className="mt-3 text-sm text-zinc-500">
         <strong className="font-medium text-zinc-300">Deep Cut</strong> (Spin
-        Journal) · {site.name} · Effective April 2026
+        Journal), {site.name}, Effective April 2026
       </p>
 
       <div className="prose-custom mt-12 space-y-10 text-sm leading-relaxed text-zinc-400">
@@ -49,48 +49,48 @@ export default function PrivacyPage() {
             <li>
               <span className="font-medium text-zinc-200">
                 Library and listening data you enter
-              </span>{" "}
-              — records you add, spin logs, notes, tags, and related metadata.
+              </span>
+              : records you add, spin logs, notes, tags, and related metadata.
               Stored locally on your device.
             </li>
             <li>
               <span className="font-medium text-zinc-200">
                 iCloud / CloudKit (signed-in users)
-              </span>{" "}
-              — If you use Sign in with Apple and iCloud, your library data may
+              </span>
+              . If you use Sign in with Apple and iCloud, your library data may
               sync through Apple&apos;s CloudKit private database tied to your
               Apple ID. Apple&apos;s privacy policies apply to that infrastructure.
               We do not receive a separate copy of your CloudKit database on our
               servers.
             </li>
             <li>
-              <span className="font-medium text-zinc-200">Guest mode</span> — If
+              <span className="font-medium text-zinc-200">Guest mode</span>. If
               you continue without signing in, data stays on the device only (not
               synced via iCloud).
             </li>
             <li>
-              <span className="font-medium text-zinc-200">Sign in with Apple</span>{" "}
-              — Apple may share an account identifier with the app so we can
+              <span className="font-medium text-zinc-200">Sign in with Apple</span>
+              . Apple may share an account identifier with the app so we can
               associate your subscription and synced data with your account. Apple
               controls what name or email is shared; we use it only to run the app
               and support your account.
             </li>
             <li>
-              <span className="font-medium text-zinc-200">In-app purchases</span> —
+              <span className="font-medium text-zinc-200">In-app purchases</span>.
               Subscription and purchase status are handled by Apple (StoreKit). We
               do not receive your full payment card details.
             </li>
             <li>
               <span className="font-medium text-zinc-200">
                 Music catalog (MusicKit)
-              </span>{" "}
-              — When you enable optional catalog-based artwork (or similar
+              </span>
+              . When you enable optional catalog-based artwork (or similar
               features), the app uses Apple&apos;s MusicKit APIs to look up album
               art and related metadata. Those requests are subject to Apple&apos;s
               terms and privacy policy.
             </li>
             <li>
-              <span className="font-medium text-zinc-200">Discogs</span> — When you
+              <span className="font-medium text-zinc-200">Discogs</span>. When you
               search or load release information from Discogs, your search terms
               and requested release identifiers are sent to Discogs&apos; API over
               the network so the app can show results and artwork. Discogs&apos;
@@ -162,8 +162,8 @@ export default function PrivacyPage() {
           <p className="mt-6 text-xs text-zinc-600">
             <Link href="/support" className="hover:text-zinc-400">
               Support page
-            </Link>{" "}
-            ·{" "}
+            </Link>
+            {" | "}
             <Link href="/deep-cut" className="hover:text-zinc-400">
               Deep Cut product page
             </Link>

@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 const highlights = [
   {
     title: "Your shelf, your rules",
-    body: "Catalog albums with rich metadata, artwork that fits how you collect, and a flow built for vinyl—not playlists.",
+    body: "Catalog albums with rich metadata, artwork that fits how you collect, and a flow built for vinyl, not playlists.",
   },
   {
     title: "Spin logging that matches reality",
@@ -34,7 +34,7 @@ export default function HomePage() {
             <br className="hidden sm:block" /> not noise.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-zinc-400">
-            {site.name} ships focused products for people who love craft—starting
+            {site.name} ships focused products for people who love craft, starting
             with{" "}
             <span className="font-medium text-zinc-200">Deep Cut</span>, a spin
             journal built for record collectors.
@@ -70,7 +70,7 @@ export default function HomePage() {
                 Flagship release
               </h2>
               <p className="mt-2 max-w-lg text-zinc-500">
-                Deep Cut is the first major product from the studio—designed to
+                Deep Cut is the first major product from the studio, designed to
                 feel as considered as the records on your shelf.
               </p>
             </div>
@@ -94,7 +94,7 @@ export default function HomePage() {
                 </h3>
                 <p className="mt-4 max-w-xl text-sm leading-relaxed text-zinc-400">
                   A real shelf, a real spin log, and listening insights tuned to
-                  how records work—not generic streaming stats.
+                  how records work, not generic streaming stats.
                 </p>
                 <ul className="mt-8 space-y-3 text-sm text-zinc-300">
                   {highlights.map((h) => (
@@ -133,7 +133,7 @@ export default function HomePage() {
                   More products ahead
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-zinc-500">
-                  This site will grow with each release—same bar for polish,
+                  This site will grow with each release, with the same bar for polish,
                   privacy, and support.
                 </p>
               </div>
@@ -155,7 +155,7 @@ export default function HomePage() {
               App Store–ready policies
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-400">
-              Privacy and support pages are first-class routes on this site—use
+              Privacy and support pages are first-class routes on this site. Use
               them wherever Apple or partners ask for stable URLs.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">

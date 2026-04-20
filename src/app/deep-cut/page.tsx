@@ -3,7 +3,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Deep Cut — Spin Journal",
+  title: "Deep Cut | Spin Journal",
   description:
     "Log vinyl listening, organize your shelf, and see stats built for how records work.",
 };
@@ -15,7 +15,7 @@ const featureBlocks = [
       "Build a shelf with artist, title, year, and label when you have them.",
       "Search releases to add cover art and track info automatically.",
       "Sort, open details, and jump straight to logging a spin.",
-      "Choose artwork you like—catalog covers, search results, or a clean default.",
+      "Choose artwork you like: catalog covers, search results, or a clean default.",
     ],
   },
   {
@@ -24,7 +24,7 @@ const featureBlocks = [
       "Pick the record, set date and time, add optional notes.",
       "When track times exist, log full albums or specific sides with smarter listen-time estimates.",
       "Otherwise pick session length or leave it open-ended.",
-      "Tag spins for moods, rooms, genres—whatever helps you browse history.",
+      "Tag spins for moods, rooms, genres, whatever helps you browse history.",
     ],
   },
   {
@@ -38,9 +38,9 @@ const featureBlocks = [
   {
     title: "Stay in sync",
     items: [
-      "Sign in with Apple to sync library across iPhone and iPad—tied to your Apple ID.",
+      "Sign in with Apple to sync library across iPhone and iPad, tied to your Apple ID.",
       "Start local and sign in later when you are ready to move your shelf.",
-      "Deep Cut Plus (monthly or lifetime) funds ongoing development—restore anytime from Profile.",
+      "Deep Cut Plus (monthly or lifetime) funds ongoing development; restore anytime from Profile.",
     ],
   },
 ] as const;
@@ -66,7 +66,7 @@ export default function DeepCutPage() {
           </p>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400">
             For people who listen on vinyl and want a real shelf, a real spin log,
-            and listening insights that match how records work—not generic streaming
+            and listening insights that match how records work, not generic streaming
             stats.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -81,7 +81,7 @@ export default function DeepCutPage() {
               </a>
             ) : (
               <span className="inline-flex items-center justify-center rounded-full border border-dashed border-amber-500/40 bg-amber-500/[0.06] px-7 py-3.5 text-sm font-medium text-amber-100/90">
-                App Store link goes live with release — set{" "}
+                App Store link goes live with release. Set{" "}
                 <code className="mx-1 rounded bg-black/30 px-1.5 py-0.5 font-mono text-xs">
                   NEXT_PUBLIC_DEEP_CUT_APP_STORE_URL
                 </code>

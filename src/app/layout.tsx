@@ -25,8 +25,8 @@ const display = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL(absoluteUrl("/")),
   title: {
-    default: `${site.name} — Crafted apps`,
-    template: `%s — ${site.name}`,
+    default: `${site.name} | Crafted apps`,
+    template: `%s | ${site.name}`,
   },
   description: site.tagline,
   openGraph: {

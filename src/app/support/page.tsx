@@ -3,7 +3,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Support — Deep Cut",
+  title: "Support | Deep Cut",
   description: "Get help with Deep Cut (Spin Journal), iCloud, purchases, and more.",
 };
 
@@ -36,10 +36,10 @@ export default function SupportPage() {
         className="mt-3 text-4xl font-normal tracking-tight text-white"
         style={{ fontFamily: "var(--font-display), ui-serif, Georgia, serif" }}
       >
-        Deep Cut — Support
+        Deep Cut: Support
       </h1>
       <p className="mt-3 text-sm text-zinc-500">
-        Spin Journal · {site.name}
+        Spin Journal, {site.name}
       </p>
 
       <p className="mt-10 text-base leading-relaxed text-zinc-400">
