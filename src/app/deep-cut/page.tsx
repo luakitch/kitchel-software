@@ -5,42 +5,43 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Deep Cut | Spin Journal",
   description:
-    "Log vinyl listening, organize your shelf, and see stats built for how records work.",
+    "Log the needle, keep the shelf, see the habit. Spin journal for vinyl: shelf, spins with notes and tags, and stats for albums and sides.",
 };
 
 const featureBlocks = [
   {
-    title: "Your collection",
+    title: "Your collection, one row at a time",
     items: [
-      "Build a shelf with artist, title, year, and label when you have them.",
-      "Search releases to add cover art and track info automatically.",
-      "Sort, open details, and jump straight to logging a spin.",
-      "Choose artwork you like: catalog covers, search results, or a clean default.",
+      "Shelf rows store artist, title, year, label, and whatever detail you choose to enter.",
+      "Sort and filter from the shelf, open a release for full detail, and jump straight into Log spin.",
+      "Search ties into Discogs release data so you can add a pressing with artwork and track listing when a match exists.",
+      "Artwork can follow the Apple Music catalog on device (when Music access is granted), use Discogs imagery from search, or fall back to a neutral default.",
     ],
   },
   {
-    title: "Spin logging",
+    title: "Spins with context, not just timestamps",
     items: [
-      "Pick the record, set date and time, add optional notes.",
-      "When track times exist, log full albums or specific sides with smarter listen-time estimates.",
-      "Otherwise pick session length or leave it open-ended.",
-      "Tag spins for moods, rooms, genres, whatever helps you browse history.",
+      "Each spin stores date, time, optional free-form notes, and tags (mood, room, genre, or your own vocabulary) for later filtering.",
+      "When per-track durations exist on the release, log a full-LP listen or restrict to Side A / Side B so listen-time estimates use real side length, not a generic timer.",
+      "When track metadata is thin, choose a fixed session length (30 / 45 / 60 / 90 minutes) or leave the session open-ended.",
+      "Spin history stays queryable even if you later remove a record from the shelf, so your archive does not lose past listens.",
     ],
   },
   {
-    title: "Recents & insights",
+    title: "Recents and analytics",
     items: [
-      "Recents surfaces your latest spins with quick paths back to the album.",
-      "Stats chart frequency, listening time, streaks, full-album vs sides, top artists and albums.",
-      "History stays meaningful even when an album leaves your shelf.",
+      "Recents orders by latest spin with one-tap paths back to the release when it is still on shelf.",
+      "Stats aggregate spin counts, total listen time, weekday histograms, and current streaks from logged data only.",
+      "Breakdowns compare full-album listens versus side-based sessions when your logs include that distinction.",
+      "Rankings surface top artists and top albums from spin counts over the window you care about.",
     ],
   },
   {
-    title: "Stay in sync",
+    title: "Release lookup and artwork",
     items: [
-      "Sign in with Apple to sync library across iPhone and iPad, tied to your Apple ID.",
-      "Start local and sign in later when you are ready to move your shelf.",
-      "Deep Cut Plus (monthly or lifetime) funds ongoing development; restore anytime from Profile.",
+      "Discogs API calls power release search and artwork retrieval; failures from rate limits or network errors surface as retryable errors in the UI.",
+      "MusicKit-backed catalog artwork is optional and gated behind system Music authorization.",
+      "StoreKit handles Deep Cut Plus subscription state; restore is available from Profile, and renewal or cancellation follows Apple’s subscription settings.",
     ],
   },
 ] as const;
@@ -55,8 +56,14 @@ export default function DeepCutPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-500">
             Kitchel Software
           </p>
+          <p
+            className="mt-4 max-w-2xl text-lg font-medium leading-snug tracking-tight sm:text-xl"
+            style={{ color: "var(--foreground)" }}
+          >
+            Log the needle. Keep the shelf. See the habit.
+          </p>
           <h1
-            className="mt-4 max-w-3xl text-4xl font-normal tracking-tight sm:text-5xl md:text-6xl"
+            className="mt-6 max-w-3xl text-4xl font-normal tracking-tight sm:text-5xl md:text-6xl"
             style={{
               fontFamily: "var(--font-display), ui-serif, Georgia, serif",
               color: "var(--foreground)",
@@ -64,12 +71,22 @@ export default function DeepCutPage() {
           >
             Deep Cut
           </h1>
-          <p className="mt-2 text-xl text-amber-500 sm:text-2xl">Spin Journal</p>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed" style={{ color: "var(--muted)" }}>
-            For people who listen on vinyl and want a real shelf, a real spin log,
-            and listening insights that match how records work, not generic streaming
-            stats.
-          </p>
+          <p className="mt-2 text-xl text-amber-500 sm:text-2xl">Spin journal for vinyl</p>
+          <div className="mt-8 max-w-2xl space-y-4 text-lg leading-relaxed" style={{ color: "var(--muted)" }}>
+            <p>
+              Build a shelf, log spins with notes and tags, and see patterns that match
+              full albums and sides, not streaming minutes.
+            </p>
+            <p>
+              Add releases fast, pick the art you like, then log how you really listened:
+              full LP, Side A, Side B, or a timed session.
+            </p>
+            <p>
+              Logging a spin is part of the ritual: date, time, optional notes, tags for
+              room or mood. Over time, the app becomes a diary of how you actually listen,
+              not a dashboard of algorithmic noise.
+            </p>
+          </div>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             {storeUrl ? (
               <a
@@ -121,11 +138,11 @@ export default function DeepCutPage() {
             color: "var(--foreground)",
           }}
         >
-          What you get
+          Inside the app
         </h2>
-        <p className="mt-2 text-sm" style={{ color: "var(--muted)" }}>
-          Designed for dark mode, with Shelf, Stats, Log, Recents, and more under one
-          roof.
+        <p className="mt-2 max-w-2xl text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
+          Shelf, Log, Recents, and Stats share one data model so counts, durations, and
+          rankings stay consistent end to end.
         </p>
         <div className="mt-12 grid gap-10 md:grid-cols-2">
           {featureBlocks.map((block) => (

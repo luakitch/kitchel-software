@@ -5,16 +5,16 @@ import { site } from "@/lib/site";
 
 const highlights = [
   {
-    title: "Your shelf, your rules",
-    body: "Catalog albums with rich metadata, artwork that fits how you collect, and a flow built for vinyl, not playlists.",
+    title: "Your collection, one row at a time",
+    body: "Build a shelf, log spins with notes and tags, and see patterns that match full albums and sides, not streaming minutes.",
   },
   {
-    title: "Spin logging that matches reality",
-    body: "Log full albums, sides, or sessions with notes and tags. Stats reflect how you actually listen.",
+    title: "Spins with context, not just timestamps",
+    body: "Add releases fast, pick the art you like, then log how you really listened: full LP, Side A, Side B, or a timed session.",
   },
   {
-    title: "Sync without surrender",
-    body: "Sign in with Apple and iCloud when you want your library across devices. Guest mode keeps it local.",
+    title: "Recents and analytics",
+    body: "Recents orders by latest spin; stats turn logged sides and sessions into listen time, weekday rhythm, streaks, and top artists or albums.",
   },
 ] as const;
 
@@ -76,8 +76,9 @@ export default function HomePage() {
                   Flagship release
                 </h2>
                 <p className="mt-2 max-w-lg" style={{ color: "var(--muted)" }}>
-                  Deep Cut is the first major product from the studio, designed to
-                  feel as considered as the records on your shelf.
+                  Log the needle. Keep the shelf. See the habit. Deep Cut is the studio
+                  flagship: a spin journal shaped around vinyl workflows, not streaming
+                  dashboards.
                 </p>
               </div>
               <Link
@@ -105,14 +106,21 @@ export default function HomePage() {
                     className="mt-2 text-2xl font-medium sm:text-3xl"
                     style={{ color: "var(--foreground)" }}
                   >
-                    Spin Journal for vinyl listeners
+                    Spin journal for vinyl
                   </h3>
+                  <p
+                    className="mt-3 max-w-xl text-sm font-medium leading-relaxed"
+                    style={{ color: "var(--foreground)" }}
+                  >
+                    Log the needle. Keep the shelf. See the habit.
+                  </p>
                   <p
                     className="mt-4 max-w-xl text-sm leading-relaxed"
                     style={{ color: "var(--muted)" }}
                   >
-                    A real shelf, a real spin log, and listening insights tuned to
-                    how records work, not generic streaming stats.
+                    Logging a spin is part of the ritual: date, time, optional notes,
+                    tags for room or mood. Over time, it becomes a diary of how you
+                    actually listen, not a dashboard of algorithmic noise.
                   </p>
                   <ul
                     className="mt-8 space-y-3 text-sm"
