@@ -12,9 +12,16 @@ type VinylRecordProps = {
   className?: string;
   /** Unique prefix for SVG defs ids when multiple instances exist in the DOM. */
   idPrefix?: string;
+  /** Softer presentation for large low-opacity backdrops (no heavy drop shadow). */
+  ambient?: boolean;
 };
 
-export function VinylRecord({ rotation, className, idPrefix = "deepcut-vinyl" }: VinylRecordProps) {
+export function VinylRecord({
+  rotation,
+  className,
+  idPrefix = "deepcut-vinyl",
+  ambient = false,
+}: VinylRecordProps) {
   const pid = `${idPrefix}-`;
   const grooves = [];
   for (let r = GROOVE_START; r >= GROOVE_END; r -= GROOVE_STEP) {
@@ -24,9 +31,13 @@ export function VinylRecord({ rotation, className, idPrefix = "deepcut-vinyl" }:
   return (
     <div
       className={className}
-      style={{
-        filter: "drop-shadow(0 28px 48px rgba(0, 0, 0, 0.45))",
-      }}
+      style={
+        ambient
+          ? undefined
+          : {
+              filter: "drop-shadow(0 28px 48px rgba(0, 0, 0, 0.45))",
+            }
+      }
     >
       <svg
         viewBox="0 0 400 400"

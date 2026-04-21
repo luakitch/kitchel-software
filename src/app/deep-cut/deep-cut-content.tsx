@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { DeepCutFixedVinyl } from "./deep-cut-fixed-vinyl";
-import { VinylRecord } from "./vinyl-record";
+import { DeepCutMobileVinylBackdrop } from "./deep-cut-mobile-vinyl";
 
 const SIDE_LABELS = ["A", "B", "C", "D"] as const;
 
@@ -26,6 +26,7 @@ export function DeepCutContent({ storeUrl, featureBlocks }: DeepCutContentProps)
   return (
     <div className="border-b" style={{ borderColor: "var(--border-subtle)" }}>
       <DeepCutFixedVinyl rotation={rotation} />
+      <DeepCutMobileVinylBackdrop rotation={rotation} />
 
       <div className="relative z-[2] mx-auto w-full max-w-6xl px-4 sm:px-6 lg:max-w-[min(42rem,68vw)] xl:max-w-[min(44rem,58vw)]">
         <div className="space-y-0 pb-20 lg:pb-28">
@@ -37,13 +38,6 @@ export function DeepCutContent({ storeUrl, featureBlocks }: DeepCutContentProps)
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="mb-10 flex justify-center lg:hidden" aria-hidden>
-              <VinylRecord
-                idPrefix="deepcut-hero"
-                rotation={rotation}
-                className="aspect-square w-[min(52vw,220px)] sm:w-[240px]"
-              />
-            </div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
               Kitchel Software
             </p>
@@ -89,18 +83,6 @@ export function DeepCutContent({ storeUrl, featureBlocks }: DeepCutContentProps)
                   Coming soon on the App Store
                 </span>
               )}
-              <Link
-                href="/support"
-                className="text-sm font-medium text-[var(--muted)] underline-offset-4 hover:text-[var(--foreground)] hover:underline"
-              >
-                Support
-              </Link>
-              <Link
-                href="/privacy"
-                className="text-sm font-medium text-[var(--muted)] underline-offset-4 hover:text-[var(--foreground)] hover:underline"
-              >
-                Privacy Policy
-              </Link>
             </div>
           </motion.section>
 
@@ -233,6 +215,37 @@ export function DeepCutContent({ storeUrl, featureBlocks }: DeepCutContentProps)
               })}
             </div>
           </div>
+
+          <motion.nav
+            className="mt-16 flex flex-wrap items-center justify-center gap-3 border-t pt-10 sm:mt-20 sm:gap-4 sm:pt-12"
+            style={{ borderColor: "var(--border-subtle)" }}
+            aria-label="Deep Cut links"
+            initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+            whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <Link
+              href="/support"
+              className="inline-flex min-h-11 min-w-[7.5rem] items-center justify-center rounded-full border px-6 py-2.5 text-sm font-semibold transition hover:border-[var(--border-ui-hover)] hover:bg-[var(--fill-hover)]"
+              style={{
+                borderColor: "var(--border-ui)",
+                color: "var(--foreground)",
+              }}
+            >
+              Support
+            </Link>
+            <Link
+              href="/privacy"
+              className="inline-flex min-h-11 min-w-[7.5rem] items-center justify-center rounded-full border px-6 py-2.5 text-sm font-semibold transition hover:border-[var(--border-ui-hover)] hover:bg-[var(--fill-hover)]"
+              style={{
+                borderColor: "var(--border-ui)",
+                color: "var(--foreground)",
+              }}
+            >
+              Privacy Policy
+            </Link>
+          </motion.nav>
         </div>
       </div>
     </div>
