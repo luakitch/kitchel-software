@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { isContactReason } from "@/lib/contact-reasons";
 import { getContactMailConfig, sendContactViaResend } from "@/lib/contact-mail";
 
 const MAX_NAME = 120;
@@ -41,10 +42,19 @@ export async function POST(request: Request) {
 
   const name = typeof record.name === "string" ? record.name.trim() : "";
   const email = typeof record.email === "string" ? record.email.trim() : "";
+  const reasonRaw = typeof record.reason === "string" ? record.reason.trim() : "";
   const subject =
     typeof record.subject === "string" ? record.subject.trim() : "";
   const message =
     typeof record.message === "string" ? record.message.trim() : "";
+
+  if (!reasonRaw || !isContactReason(reasonRaw)) {
+    return NextResponse.json(
+      { error: "Please choose why you are reaching out." },
+      { status: 400 },
+    );
+  }
+  const reason = reasonRaw;
 
   if (!name || name.length > MAX_NAME) {
     return NextResponse.json(
@@ -77,6 +87,7 @@ export async function POST(request: Request) {
     config,
     name,
     email,
+    reason,
     subject,
     message,
   });

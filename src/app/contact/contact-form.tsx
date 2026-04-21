@@ -1,6 +1,10 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import {
+  CONTACT_REASON_LABELS,
+  CONTACT_REASON_VALUES,
+} from "@/lib/contact-reasons";
 import { site } from "@/lib/site";
 
 type Status = "idle" | "sending" | "success" | "error";
@@ -16,6 +20,7 @@ export function ContactForm() {
 
     const name = String(fd.get("name") ?? "").trim();
     const email = String(fd.get("email") ?? "").trim();
+    const reason = String(fd.get("reason") ?? "").trim();
     const subject = String(fd.get("subject") ?? "").trim();
     const message = String(fd.get("message") ?? "").trim();
     const hp = String(fd.get("hp") ?? "");
@@ -27,7 +32,7 @@ export function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, subject, message, hp }),
+        body: JSON.stringify({ name, email, reason, subject, message, hp }),
       });
       const data = (await res.json()) as { error?: string };
 
@@ -47,6 +52,8 @@ export function ContactForm() {
 
   const inputClass =
     "w-full rounded-xl border border-[var(--border-ui)] bg-[var(--background)] px-4 py-3 text-sm text-[var(--foreground)] outline-none transition placeholder:text-[var(--muted-3)] focus-visible:border-[var(--border-ui-hover)] focus-visible:ring-2 focus-visible:ring-[var(--ring)]";
+
+  const selectClass = `${inputClass} cursor-pointer appearance-none bg-[length:1rem_1rem] bg-[right_0.75rem_center] bg-no-repeat pr-10`;
 
   return (
     <div
@@ -103,6 +110,31 @@ export function ContactForm() {
               autoComplete="email"
               className={`${inputClass} mt-1.5`}
             />
+          </div>
+
+          <div>
+            <label htmlFor="contact-reason" className="text-xs font-medium text-[var(--foreground)]">
+              Why are you reaching out?
+            </label>
+            <select
+              id="contact-reason"
+              name="reason"
+              required
+              defaultValue=""
+              className={`${selectClass} mt-1.5`}
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2371717a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")`,
+              }}
+            >
+              <option value="" disabled>
+                Select one…
+              </option>
+              {CONTACT_REASON_VALUES.map((value) => (
+                <option key={value} value={value}>
+                  {CONTACT_REASON_LABELS[value]}
+                </option>
+              ))}
+            </select>
           </div>
 
           <div>

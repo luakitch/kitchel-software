@@ -1,3 +1,5 @@
+import type { ContactReason } from "@/lib/contact-reasons";
+import { contactReasonLabel } from "@/lib/contact-reasons";
 import { site } from "@/lib/site";
 
 /** Resend: use a verified domain in production, e.g. `Kitchel Software <hello@kitchelsoftware.com>`. */
@@ -24,21 +26,25 @@ export async function sendContactViaResend(params: {
   config: ContactMailConfig;
   name: string;
   email: string;
+  reason: ContactReason;
   subject: string;
   message: string;
 }): Promise<{ ok: true } | { ok: false; status: number; detail: string }> {
-  const { config, name, email, subject, message } = params;
+  const { config, name, email, reason, subject, message } = params;
   const line = (label: string, value: string) => `${label}: ${value}\n`;
+  const reasonLabel = contactReasonLabel(reason);
 
   const text = [
     line("Name", name),
     line("Email", email),
+    line("Reason", reasonLabel),
     line("Subject", subject || "(none)"),
     "",
     "Message:",
     message,
   ].join("\n");
 
+  const tag = `[${reasonLabel}]`;
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -50,8 +56,8 @@ export async function sendContactViaResend(params: {
       to: [config.to],
       reply_to: email,
       subject: subject
-        ? `[Site] ${subject}`
-        : `[Site] Message from ${name}`,
+        ? `[Site] ${tag} ${subject}`
+        : `[Site] ${tag} Message from ${name}`,
       text,
     }),
   });
