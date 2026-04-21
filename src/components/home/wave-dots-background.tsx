@@ -8,10 +8,7 @@ type Props = {
   fullBleed?: boolean;
 };
 
-/**
- * Animated halftone dot field (Acceling HomeWaveDotsBackground).
- * Theme-aware via `data-theme` on documentElement.
- */
+/** Animated halftone dot field (Acceling HomeWaveDotsBackground). Dark palette only. */
 export function WaveDotsBackground({ fullBleed = false }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -33,8 +30,6 @@ export function WaveDotsBackground({ fullBleed = false }: Props) {
     const prefersReducedMotion = () =>
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    const isDark = () => document.documentElement.getAttribute("data-theme") === "dark";
 
     const spacing = 22;
     const kx = 0.017;
@@ -62,9 +57,8 @@ export function WaveDotsBackground({ fullBleed = false }: Props) {
       if (w === 0 || h === 0) return;
 
       ctx.clearRect(0, 0, w, h);
-      const dark = isDark();
-      const minA = dark ? 0.05 : 0.06;
-      const maxA = dark ? 0.22 : 0.26;
+      const minA = 0.05;
+      const maxA = 0.22;
 
       for (let x = 0; x < w + spacing; x += spacing) {
         for (let y = 0; y < h + spacing; y += spacing) {
@@ -74,7 +68,7 @@ export function WaveDotsBackground({ fullBleed = false }: Props) {
           const a = minA + (maxA - minA) * wave;
           if (a < 0.035) continue;
           const r = 1.05 + 0.5 * wave;
-          ctx.fillStyle = dark ? `rgba(228, 228, 231, ${a})` : `rgba(24, 24, 27, ${a})`;
+          ctx.fillStyle = `rgba(228, 228, 231, ${a})`;
           ctx.beginPath();
           ctx.arc(x, y, r, 0, Math.PI * 2);
           ctx.fill();
@@ -113,12 +107,6 @@ export function WaveDotsBackground({ fullBleed = false }: Props) {
     };
     mq.addEventListener("change", onMotionPref);
 
-    const mo = new MutationObserver(() => {
-      resize();
-      draw();
-    });
-    mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
-
     resize();
     if (prefersReducedMotion()) {
       draw();
@@ -130,7 +118,6 @@ export function WaveDotsBackground({ fullBleed = false }: Props) {
       cancelAnimationFrame(raf);
       ro.disconnect();
       mq.removeEventListener("change", onMotionPref);
-      mo.disconnect();
     };
   }, []);
 

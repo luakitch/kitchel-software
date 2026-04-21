@@ -30,32 +30,6 @@ html[data-theme="dark"] {
   --section-tint: #141210;
 }
 
-html[data-theme="light"] {
-  color-scheme: light;
-  --background: #fafafa;
-  --foreground: #18181b;
-  --muted: #52525b;
-  --muted-2: #71717a;
-  --muted-3: #a1a1aa;
-  --border-subtle: rgba(24, 24, 27, 0.08);
-  --border-subtle-2: rgba(24, 24, 27, 0.06);
-  --border-ui: rgba(24, 24, 27, 0.12);
-  --border-ui-hover: rgba(24, 24, 27, 0.2);
-  --fill-hover: rgba(24, 24, 27, 0.04);
-  --card: rgba(244, 244, 245, 0.85);
-  --card-elevated: rgba(228, 228, 231, 0.75);
-  --card-deep: #f4f4f5;
-  --accent: #d97706;
-  --accent-hover: #b45309;
-  --accent-2: #ea580c;
-  --accent-soft: rgba(217, 119, 6, 0.1);
-  --ring: rgba(217, 119, 6, 0.3);
-  --footer-note: #71717a;
-  --section-surface: #fafafa;
-  --section-muted: #f4f4f5;
-  --section-tint: #fffbeb;
-}
-
 /* /deep-cut only: set on body by DeepCutThemeScope */
 body.deepcut-theme {
   --background: #0a0a0f;
@@ -77,28 +51,6 @@ body.deepcut-theme {
   --accent-soft: rgba(184, 89, 255, 0.14);
   --ring: rgba(184, 89, 255, 0.45);
   --footer-note: #71717a;
-}
-
-html[data-theme="light"] body.deepcut-theme {
-  --background: #faf9fc;
-  --foreground: #0f0a1a;
-  --muted: #57516b;
-  --muted-2: #6b6680;
-  --muted-3: #9088a8;
-  --border-subtle: rgba(15, 10, 26, 0.08);
-  --border-subtle-2: rgba(15, 10, 26, 0.05);
-  --border-ui: rgba(15, 10, 26, 0.12);
-  --border-ui-hover: rgba(15, 10, 26, 0.2);
-  --fill-hover: rgba(99, 102, 243, 0.08);
-  --card: rgba(255, 255, 255, 0.88);
-  --card-elevated: #ffffff;
-  --card-deep: #f3f0fa;
-  --accent: #7c3aed;
-  --accent-hover: #6d28d9;
-  --accent-2: #6366f3;
-  --accent-soft: rgba(124, 58, 237, 0.1);
-  --ring: rgba(124, 58, 237, 0.35);
-  --footer-note: #6b6680;
 }
 
 @theme inline {
@@ -126,25 +78,11 @@ body {
     radial-gradient(ellipse 50% 30% at 0% 10%, rgba(59, 130, 246, 0.06), transparent);
 }
 
-html[data-theme="light"] .hero-glow {
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(251, 191, 36, 0.28), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(244, 63, 94, 0.05), transparent),
-    radial-gradient(ellipse 50% 30% at 0% 10%, rgba(59, 130, 246, 0.04), transparent);
-}
-
 body.deepcut-theme .hero-glow {
   background:
     radial-gradient(ellipse 85% 55% at 50% -15%, rgba(184, 89, 255, 0.2), transparent),
     radial-gradient(ellipse 55% 45% at 100% 0%, rgba(99, 102, 243, 0.12), transparent),
     radial-gradient(ellipse 45% 35% at 0% 15%, rgba(184, 89, 255, 0.08), transparent);
-}
-
-html[data-theme="light"] body.deepcut-theme .hero-glow {
-  background:
-    radial-gradient(ellipse 85% 55% at 50% -15%, rgba(124, 58, 237, 0.14), transparent),
-    radial-gradient(ellipse 55% 45% at 100% 0%, rgba(99, 102, 243, 0.1), transparent),
-    radial-gradient(ellipse 45% 35% at 0% 15%, rgba(124, 58, 237, 0.06), transparent);
 }
 
 .groove-ring {
@@ -154,15 +92,5 @@ html[data-theme="light"] body.deepcut-theme .hero-glow {
     transparent 3px,
     rgba(255, 255, 255, 0.04) 3px,
     rgba(255, 255, 255, 0.04) 4px
-  );
-}
-
-html[data-theme="light"] .groove-ring {
-  background: repeating-radial-gradient(
-    circle at center,
-    transparent 0,
-    transparent 3px,
-    rgba(24, 24, 27, 0.06) 3px,
-    rgba(24, 24, 27, 0.06) 4px
   );
 }

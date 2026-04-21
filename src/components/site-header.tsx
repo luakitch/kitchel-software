@@ -2,14 +2,12 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { site } from "@/lib/site";
 
 const nav = [
   { href: "/", label: "Home" },
   { href: "/deep-cut", label: "Deep Cut" },
   { href: "/support", label: "Support" },
-  { href: "/contact", label: "Contact" },
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },
 ] as const;
@@ -65,9 +63,9 @@ export function SiteHeader() {
             </Link>
           </div>
           <div className="navbar-end">
-            <div className="nav-actions">
-              <ThemeToggle />
-            </div>
+            <Link href="/contact" className="nav-contact-cta" onClick={closeMenu}>
+              Contact
+            </Link>
             <button
               type="button"
               className={`hamburger${menuOpen ? " is-open" : ""}`}
@@ -86,9 +84,6 @@ export function SiteHeader() {
           className={`nav-links${menuOpen ? " active" : ""}`}
           id="primary-navigation"
         >
-          <li className="nav-drawer-theme">
-            <ThemeToggle />
-          </li>
           {nav.map((item) => (
             <li key={item.href}>
               <Link href={item.href} onClick={closeMenu}>
