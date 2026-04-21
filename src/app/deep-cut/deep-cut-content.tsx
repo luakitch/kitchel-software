@@ -86,59 +86,8 @@ export function DeepCutContent({ storeUrl, featureBlocks }: DeepCutContentProps)
             </div>
           </motion.section>
 
-          <div className="mt-14 space-y-6 sm:mt-20 sm:space-y-8">
-            <motion.article
-              className="rounded-2xl border px-5 py-7 sm:px-7 sm:py-8"
-              style={{
-                borderColor: "var(--border-subtle)",
-                background: "var(--card)",
-              }}
-              initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px", amount: 0.3 }}
-              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <p className="text-base leading-relaxed sm:text-lg" style={{ color: "var(--muted)" }}>
-                Build a shelf, log spins with notes and tags, and see patterns that match full albums and sides,
-                not streaming minutes.
-              </p>
-            </motion.article>
-            <motion.article
-              className="rounded-2xl border px-5 py-7 sm:px-7 sm:py-8"
-              style={{
-                borderColor: "var(--border-subtle)",
-                background: "var(--card-elevated)",
-              }}
-              initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px", amount: 0.3 }}
-              transition={{ duration: 0.45, delay: 0.04, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <p className="text-base leading-relaxed sm:text-lg" style={{ color: "var(--muted)" }}>
-                Add releases fast, pick the art you like, then log how you really listened: full LP, Side A, Side
-                B, or a timed session.
-              </p>
-            </motion.article>
-            <motion.article
-              className="rounded-2xl border px-5 py-7 sm:px-7 sm:py-8"
-              style={{
-                borderColor: "var(--border-subtle)",
-                background: "var(--card)",
-              }}
-              initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px", amount: 0.3 }}
-              transition={{ duration: 0.45, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <p className="text-base leading-relaxed sm:text-lg" style={{ color: "var(--muted)" }}>
-                Logging a spin is part of the ritual: date, time, optional notes, tags for room or mood. Over time,
-                the app becomes a diary of how you actually listen, not a dashboard of algorithmic noise.
-              </p>
-            </motion.article>
-          </div>
-
           <motion.div
-            className="mt-20 sm:mt-28"
+            className="mt-14 sm:mt-16"
             initial={reduceMotion ? false : { opacity: 0, y: 12 }}
             whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}

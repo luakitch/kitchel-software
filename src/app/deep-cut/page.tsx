@@ -16,6 +16,7 @@ const featureBlocks = [
       "Sort and filter from the shelf, open a release for full detail, and jump straight into Log spin.",
       "Search ties into Discogs release data so you can add a pressing with artwork and track listing when a match exists.",
       "Artwork can follow the Apple Music catalog on device (when Music access is granted), use Discogs imagery from search, or fall back to a neutral default.",
+      "Add releases quickly when a match exists, then pick the art you want—speed first, polish when it matters.",
     ],
   },
   {
@@ -25,6 +26,7 @@ const featureBlocks = [
       "When per-track durations exist on the release, log a full-LP listen or restrict to Side A / Side B so listen-time estimates use real side length, not a generic timer.",
       "When track metadata is thin, choose a fixed session length (30 / 45 / 60 / 90 minutes) or leave the session open-ended.",
       "Spin history stays queryable even if you later remove a record from the shelf, so your archive does not lose past listens.",
+      "Logging stays lightweight at capture—part of the ritual—while the archive reads as a diary of how you actually listened, not algorithmic stream noise.",
     ],
   },
   {
@@ -34,6 +36,7 @@ const featureBlocks = [
       "Stats aggregate spin counts, total listen time, weekday histograms, and current streaks from logged data only.",
       "Breakdowns compare full-album listens versus side-based sessions when your logs include that distinction.",
       "Rankings surface top artists and top albums from spin counts over the window you care about.",
+      "Patterns reflect albums and sides you logged with notes and tags—not a stand-in for streaming minutes.",
     ],
   },
   {
