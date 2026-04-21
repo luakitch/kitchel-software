@@ -52,10 +52,16 @@ export default function HomePage() {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <MagneticExploreCta href="/deep-cut" label="Explore Deep Cut" />
             <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full border border-[var(--border-ui)] px-6 py-3 text-sm font-medium text-[var(--foreground)] transition hover:border-[var(--border-ui-hover)] hover:bg-[var(--fill-hover)]"
+            >
+              Contact
+            </Link>
+            <Link
               href="/support"
               className="inline-flex items-center justify-center rounded-full border border-[var(--border-ui)] px-6 py-3 text-sm font-medium text-[var(--foreground)] transition hover:border-[var(--border-ui-hover)] hover:bg-[var(--fill-hover)]"
             >
-              Support & contact
+              Support
             </Link>
           </div>
         </div>

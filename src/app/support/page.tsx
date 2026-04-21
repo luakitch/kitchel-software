@@ -57,6 +57,15 @@ export default function SupportPage() {
           }}
         >
           <p className="text-sm" style={{ color: "var(--muted)" }}>
+            <span className="font-medium text-[var(--foreground)]">Form:</span>{" "}
+            <Link
+              href="/contact"
+              className="font-medium text-[var(--accent)] hover:opacity-90"
+            >
+              Send a message
+            </Link>
+          </p>
+          <p className="mt-3 text-sm" style={{ color: "var(--muted)" }}>
             <span className="font-medium text-[var(--foreground)]">Email:</span>{" "}
             <a
               href={`mailto:${site.email.support}`}

@@ -9,7 +9,9 @@ const nav = [
   { href: "/", label: "Home" },
   { href: "/deep-cut", label: "Deep Cut" },
   { href: "/support", label: "Support" },
+  { href: "/contact", label: "Contact" },
   { href: "/privacy", label: "Privacy" },
+  { href: "/terms", label: "Terms" },
 ] as const;
 
 export function SiteHeader() {

@@ -162,6 +162,10 @@ export default function PrivacyPage() {
             </a>
           </p>
           <p className="mt-6 text-xs text-[var(--footer-note)]">
+            <Link href="/terms" className="hover:text-[var(--foreground)]">
+              Terms of Use
+            </Link>
+            {" | "}
             <Link href="/support" className="hover:text-[var(--foreground)]">
               Support page
             </Link>

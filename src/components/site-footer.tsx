@@ -38,16 +38,28 @@ export function SiteFooter() {
             Support
           </Link>
           <Link
+            href="/contact"
+            className="transition hover:text-[var(--foreground)]"
+          >
+            Contact
+          </Link>
+          <Link
             href="/privacy"
             className="transition hover:text-[var(--foreground)]"
           >
             Privacy
           </Link>
+          <Link
+            href="/terms"
+            className="transition hover:text-[var(--foreground)]"
+          >
+            Terms
+          </Link>
           <a
             href={`mailto:${site.email.support}`}
             className="transition hover:text-[var(--foreground)]"
           >
-            Contact
+            Email
           </a>
         </div>
       </div>
