@@ -3,7 +3,6 @@ export const site = {
   tagline: "Thoughtful software for people who care about the details.",
   email: {
     support: "kitchelsoftware@gmail.com",
-    privacy: "privacy@kitchelsoftware.com",
   },
   /** Set when the App Store listing is live */
   deepCutAppStoreUrl:

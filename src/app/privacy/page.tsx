@@ -155,10 +155,10 @@ export default function PrivacyPage() {
           <p className="mt-2">
             Privacy questions:{" "}
             <a
-              href={`mailto:${site.email.privacy}`}
+              href={`mailto:${site.email.support}`}
               className="font-medium text-[var(--accent)] hover:opacity-90"
             >
-              {site.email.privacy}
+              {site.email.support}
             </a>
           </p>
           <p className="mt-6 text-xs text-[var(--footer-note)]">
