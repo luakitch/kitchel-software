@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { site } from "@/lib/site";
@@ -54,9 +55,14 @@ export function SiteHeader() {
         <div className="navbar-chrome">
           <div className="logo">
             <Link href="/" className="logo-mark" onClick={closeMenu}>
-              <span className="inline-flex rounded-md bg-gradient-to-br from-amber-300 via-amber-400 to-orange-600 px-1.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-widest text-white shadow-sm">
-                KS
-              </span>
+              <Image
+                src="/ks-logo.png"
+                alt=""
+                width={40}
+                height={40}
+                className="h-8 w-8 rounded-lg object-contain"
+                priority
+              />
             </Link>
             <Link href="/" className="logo-wordmark" onClick={closeMenu}>
               <span>{site.name}</span>

@@ -42,6 +42,10 @@ export const metadata: Metadata = {
     title: site.name,
     description: site.tagline,
   },
+  icons: {
+    icon: [{ url: "/ks-logo.png", type: "image/png" }],
+    apple: "/ks-logo.png",
+  },
 };
 
 export default function RootLayout({
