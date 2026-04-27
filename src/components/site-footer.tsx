@@ -32,6 +32,19 @@ export function SiteFooter() {
             Deep Cut
           </Link>
           <Link
+            href="/extensions"
+            className="transition hover:text-[var(--foreground)]"
+          >
+            Extensions
+          </Link>
+          <a
+            href={site.github}
+            className="transition hover:text-[var(--foreground)]"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+          <Link
             href="/support"
             className="transition hover:text-[var(--foreground)]"
           >

@@ -8,6 +8,7 @@ import { site } from "@/lib/site";
 const nav = [
   { href: "/", label: "Home" },
   { href: "/deep-cut", label: "Deep Cut" },
+  { href: "/extensions", label: "Extensions" },
   { href: "/support", label: "Support" },
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },
