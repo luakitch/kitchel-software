@@ -60,6 +60,7 @@ export default function RootLayout({
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${display.variable} min-h-dvh font-sans antialiased`}
+        suppressHydrationWarning
       >
         <div className="flex min-h-dvh flex-col">
           <SiteHeader />

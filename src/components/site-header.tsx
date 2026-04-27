@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
 
 const nav = [
@@ -17,6 +17,7 @@ const nav = [
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const headerRef = useRef<HTMLElement | null>(null);
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
 
@@ -25,6 +26,57 @@ export function SiteHeader() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  /** Keeps the mobile menu panel just below the bar; re-syncs when the pill reflows on scroll. */
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+
+    const mobileNavMq = window.matchMedia("(max-width: 1359px)");
+
+    function updateMobileNavPanelTop() {
+      if (!mobileNavMq.matches) {
+        document.documentElement.style.removeProperty("--nav-mobile-panel-top");
+        return;
+      }
+      const gapPx = 10;
+      const y = header.getBoundingClientRect().bottom + gapPx;
+      document.documentElement.style.setProperty(
+        "--nav-mobile-panel-top",
+        `${Math.max(0, Math.round(y))}px`,
+      );
+    }
+
+    function onMobileNavMqChange() {
+      updateMobileNavPanelTop();
+    }
+
+    const ro = new ResizeObserver(() => updateMobileNavPanelTop());
+    ro.observe(header);
+
+    let tick = false;
+    const onScrollRaf = () => {
+      if (tick) return;
+      tick = true;
+      window.requestAnimationFrame(() => {
+        updateMobileNavPanelTop();
+        tick = false;
+      });
+    };
+
+    updateMobileNavPanelTop();
+    mobileNavMq.addEventListener("change", onMobileNavMqChange);
+    window.addEventListener("scroll", onScrollRaf, { passive: true });
+    window.addEventListener("resize", updateMobileNavPanelTop);
+
+    return () => {
+      ro.disconnect();
+      mobileNavMq.removeEventListener("change", onMobileNavMqChange);
+      window.removeEventListener("scroll", onScrollRaf);
+      window.removeEventListener("resize", updateMobileNavPanelTop);
+      document.documentElement.style.removeProperty("--nav-mobile-panel-top");
+    };
   }, []);
 
   useEffect(() => {
@@ -45,6 +97,7 @@ export function SiteHeader() {
 
   return (
     <header
+      ref={headerRef}
       className={`site-header${scrolled ? " scrolled" : ""}${menuOpen ? " nav-menu-open" : ""}`}
     >
       <div

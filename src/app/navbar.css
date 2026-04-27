@@ -18,6 +18,11 @@ header.site-header:has(.navbar) {
   box-shadow: none;
 }
 
+/*
+ * Mobile: frosted chrome lives on `.navbar-chrome` only. `backdrop-filter` on `.navbar` would make
+ * `position: fixed` `.nav-links` position relative to the bar (not the viewport), clipping the menu in prod WebKit/Blink.
+ */
+
 @media (min-width: 1360px) {
   header.site-header:has(.navbar):not(.scrolled) {
     padding: 0;
@@ -126,7 +131,8 @@ header.site-header:has(.navbar) {
     position: fixed;
     left: 0;
     right: 0;
-    top: var(--marketing-nav-bar-height, 4.5rem);
+    /* Full-viewport dim; nav stays above via z-index */
+    top: 0;
     bottom: 0;
     z-index: 1001;
     background: rgba(0, 0, 0, 0.45);
@@ -364,8 +370,20 @@ button.hamburger {
     -webkit-backdrop-filter: none;
   }
 
+  /* Glass pill wraps the title row only — keeps `.nav-links` out of a filtered containing block. */
   header.site-header.scrolled .navbar {
     min-height: 0;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  header.site-header.scrolled .navbar-chrome {
     max-width: calc(100% - 0.5rem);
     margin-left: auto;
     margin-right: auto;
@@ -374,8 +392,21 @@ button.hamburger {
     background: var(--nav-glass-bg);
     backdrop-filter: blur(18px) saturate(1.35);
     -webkit-backdrop-filter: blur(18px) saturate(1.35);
-    border-color: var(--nav-glass-border);
+    border: 1px solid var(--nav-glass-border);
     box-shadow: var(--nav-glass-shadow);
+    box-sizing: border-box;
+  }
+
+  .logo-wordmark span {
+    font-size: clamp(0.95rem, 3.5vw, 1.15rem);
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .logo-wordmark {
+    text-align: left;
   }
 
   .navbar-end {
@@ -436,46 +467,63 @@ button.hamburger {
 
   .nav-links {
     position: fixed;
-    top: var(--marketing-nav-bar-height, 4.5rem);
-    right: 0;
-    bottom: 0;
-    left: auto;
-    width: min(20rem, 88vw);
-    max-width: 100%;
+    left: clamp(0.5rem, 3vw, 1rem);
+    right: clamp(0.5rem, 3vw, 1rem);
+    top: var(--nav-mobile-panel-top, 5.25rem);
+    bottom: auto;
+    width: auto;
+    max-width: none;
+    max-height: calc(
+      100dvh - var(--nav-mobile-panel-top, 5.25rem) - env(safe-area-inset-bottom, 0px) - 0.75rem
+    );
     flex: none;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     justify-content: flex-start;
-    text-align: left;
+    text-align: center;
     gap: 0.45rem;
-    padding: 1rem 1.25rem 1.5rem;
+    padding: 1rem 1.15rem 1.35rem;
     margin: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
     overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     -webkit-overflow-scrolling: touch;
-    background: rgba(15, 23, 42, 0.82);
-    backdrop-filter: blur(20px) saturate(1.2);
-    -webkit-backdrop-filter: blur(20px) saturate(1.2);
-    border-left: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: -12px 0 48px rgba(0, 0, 0, 0.25);
+    background: var(--nav-glass-bg);
+    backdrop-filter: blur(18px) saturate(1.35);
+    -webkit-backdrop-filter: blur(18px) saturate(1.35);
+    border: 1px solid var(--nav-glass-border);
+    border-radius: 1.25rem;
+    box-shadow: none;
     z-index: 1002;
-    transform: translateX(100%);
+    transform: translateY(-0.65rem);
+    opacity: 0;
     visibility: hidden;
     pointer-events: none;
     transition:
-      transform 0.28s ease,
+      transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.24s ease,
       visibility 0.28s;
     display: flex;
   }
 
+  .nav-links::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
   .nav-links.active {
-    transform: translateX(0);
+    transform: translateY(0);
+    opacity: 1;
     visibility: visible;
     pointer-events: auto;
   }
 
   .nav-links li {
     margin: 0.25rem 0;
+    width: 100%;
+    text-align: center;
   }
 
   .nav-links a {
@@ -483,6 +531,7 @@ button.hamburger {
     padding: 0.65rem 0.35rem;
     border-radius: 8px;
     white-space: normal;
+    text-align: center;
   }
 
 }
