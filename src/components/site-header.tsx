@@ -30,9 +30,6 @@ export function SiteHeader() {
 
   /** Keeps the mobile menu panel just below the bar; re-syncs when the pill reflows on scroll. */
   useEffect(() => {
-    const header = headerRef.current;
-    if (!header) return;
-
     const mobileNavMq = window.matchMedia("(max-width: 1359px)");
 
     function updateMobileNavPanelTop() {
@@ -40,6 +37,8 @@ export function SiteHeader() {
         document.documentElement.style.removeProperty("--nav-mobile-panel-top");
         return;
       }
+      const header = headerRef.current;
+      if (!header) return;
       const gapPx = 10;
       const y = header.getBoundingClientRect().bottom + gapPx;
       document.documentElement.style.setProperty(
@@ -52,8 +51,11 @@ export function SiteHeader() {
       updateMobileNavPanelTop();
     }
 
+    const headerEl = headerRef.current;
+    if (!headerEl) return;
+
     const ro = new ResizeObserver(() => updateMobileNavPanelTop());
-    ro.observe(header);
+    ro.observe(headerEl);
 
     let tick = false;
     const onScrollRaf = () => {
